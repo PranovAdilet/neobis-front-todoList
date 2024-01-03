@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/todo.css">
+    <link rel="stylesheet" href="fontello/css/fontello.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="todo">
+        <div>
+            <label class="todo__label">
+                <h1 class="todo__title">What`s up, </h1>
+                <input placeholder="Name here" class="todo__title-input">
+            </label>
+        </div>
+        <p class="todo__subtitle">CREATE A TODO</p>
+        <p class="todo__text">What`s on your todo-list?</p>
+        <input placeholder="white your task" minlength="3" maxlength="34" class="todo__input" type="text">
+        <p class="todo__text">Pick a category</p>
+
+        <div class="todo__category">
+            <div class="todo__category-box">
+                <i class="icon-circle-empty icon__business icon"></i>
+                <p class="todo__category-choice">Business</p>
+            </div>
+            <div class="todo__category-box">
+                <i class="icon-circle-empty icon__personal icon"></i>
+                <p class="todo__category-choice">Personal</p>
+            </div>
+        </div>
+        <button type="button" class="todo__btn">Add Todo</button>
+
+        <p class="todo__subtitle">TODO LIST</p>
+        <div class="todo__list">
+
+        </div>
+    </div>
+    <script src="todo.js"></script>
+</body>
+</html>
