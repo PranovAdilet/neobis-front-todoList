@@ -27,6 +27,7 @@ const todoForm = () => {
     const editTodo = (e, text, input, editBtn) => {
 
         if (e.target.textContent === "Edit") {
+
             input.value = text.textContent
             text.style.display = 'none'
             input.style.display = 'block'
@@ -35,18 +36,13 @@ const todoForm = () => {
             input.selectionStart = input.selectionEnd = input.value.length
 
             editBtn.innerHTML = "Save"
+
         } else if (e.target.textContent === "Save") {
             text.textContent = input.value
             text.style.display = 'block'
             input.style.display = 'none'
             editBtn.innerHTML = "Edit"
         }
-        input.addEventListener('blur', () => {
-            text.textContent = input.value;
-            text.style.display = 'block';
-            input.style.display = 'none';
-            editBtn.innerHTML = "Edit";
-        });
     }
 
     const deleteTodo = (parent, newTask) =>  {
@@ -123,6 +119,14 @@ const todoForm = () => {
         deleteBtn.addEventListener('click', () => deleteTodo(parent, newTask))
         checkBtn.addEventListener('click', (e) => checkTasks(e, newTask, text, input))
 
+        document.addEventListener('click', function (e) {
+            const isClickInsideEditArea = newTask.contains(e.target) || editBtn.contains(e.target)
+
+            if (!isClickInsideEditArea) {
+                editTodo({ target: { textContent: "Save" } }, text, input, editBtn);
+            }
+        });
+
     }
 
 
@@ -132,5 +136,6 @@ const todoForm = () => {
 
 
 document.addEventListener('DOMContentLoaded', function () {
-    todoForm();
+    todoForm()
 })
+
